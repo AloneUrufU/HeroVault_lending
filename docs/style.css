@@ -1,0 +1,613 @@
+/* #region Base Styles & Resets */
+:root {
+    /* Кольорова Палітра (Dark Fantasy) */
+    --color-primary: #1b649d; /* Основний темно-синій */
+    --color-secondary: #408be6; /* Акцентний синій (рамки, світіння) */
+    --color-text-light: #f4f8ff; /* Світлий текст */
+    --color-text-accent: #ffd700; /* Золотий акцент (для важливих елементів) */
+    --color-dark-bg: #062543; /* Найтемніший фон */
+    --color-card-bg: #22375a; /* Фон картки */
+    --color-success: #4CAF50; /* Зелений для успіху/валідації */
+
+    /* Геометрія */
+    --padding-section: 60px 20px;
+    --max-width: 1200px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color: var(--color-text-light);
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: var(--color-dark-bg);
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-text-light);
+    transition: color 0.3s;
+}
+
+h1, h2, h3 {
+    font-style: normal;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 0.5em;
+}
+
+/* Обмежувач контенту */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Спільний клас для всіх посилань, стилізованих під кнопки */
+.btn {
+    display: inline-block;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* #endregion */
+
+/* #region class1 (Перший Екран) */
+.class1 {
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+        url('images/бекграунд/блок1.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    padding: var(--padding-section);
+    min-height: 100vh;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0%;
+}
+
+.class1_head {
+    max-width: 800px;
+    margin-bottom: 10px;
+}
+
+.class1_head h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1.2;
+    margin-top: 0;
+    margin-bottom: 0.5%;
+}
+
+.class1_head h2 {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    font-weight: 400;
+    opacity: 0.8;
+    max-width: 700px;
+    margin: 0 auto 20px;
+}
+
+/* Блок з посиланнями CTA */
+.cta_buttons {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Основне посилання CTA (primary-cta) */
+.primary-cta {
+    background-color: var(--color-secondary);
+    color: var(--color-text-light);
+    padding: 15px 30px 5px;
+    border: none;
+    line-height: 1;
+}
+
+.primary-cta p {
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 5px;
+    opacity: 0.8;
+    font-weight: 400;
+    padding-bottom: 5px;
+}
+
+.primary-cta:hover {
+    background-color: #5d9fe8;
+    transform: translateY(-2px);
+}
+
+/* Додаткове посилання CTA (secondary-cta) */
+.secondary-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 30px;
+    border: 1px solid var(--color-secondary);
+    background-color: transparent;
+    font-size: 1.2rem;
+}
+
+.secondary-cta:hover {
+    background-color: var(--color-secondary);
+    transform: translateY(-2px);
+}
+/* #endregion */
+
+/* #region hero_card (Картка персонажа) */
+.hero_card {
+    border: 6px solid var(--color-text-light);
+    box-shadow: 0 0 0 8px var(--color-secondary), 0 4px 32px 0 rgba(30, 32, 43, 0.6);
+    border-radius: 22px;
+    background: radial-gradient(circle, #335a89 60%, var(--color-card-bg) 100%);
+    
+    width: 350px; 
+    max-width: 90%; 
+
+    margin: 10px 0;
+    padding-bottom: 20px;
+    font-style: normal;
+}
+
+.hero_card_class h1 {
+    font-size: 2.5rem;
+    margin: 0.5em 0 0;
+    letter-spacing: 0.07em;
+    color: var(--color-text-accent);
+}
+
+.hero_card_stats {
+    padding: 10px 0;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.hero_card_stats_name {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.hero_card_stats_name span {
+    flex-basis: 18%;
+    text-align: center;
+}
+
+.hero_card_stats_name article p {
+    margin: 0;
+}
+
+.hero_card_stats_name span p {
+    margin: 0;
+}
+
+.hero_card_stats_table {
+    gap: 0.5em;
+    width: 100%;
+    padding: 0 10px;
+    display: flex; 
+    justify-content: space-around;
+}
+
+.hero_card_stats_table_column {
+    flex-grow: 1;
+    max-width: 50%;
+}
+
+.hero_card_stats_table_rows {
+    padding: 5px 10px;
+    background-color: rgba(0, 0, 0, 0.15);
+    margin-bottom: 4px;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.hero_card_stats_table_rows p {
+    margin: 0;
+}
+
+.hero_card_stats_table_rows p:last-child {
+    color: var(--color-secondary);
+}
+
+.hero_card_health {
+    width: 90%; 
+    margin: 15px auto 0;
+    
+    padding: 10px 0;
+    border-top: 2px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    font-size: 1.2rem;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hero_card_health > div:first-child p {
+    margin: 0;
+    padding-left: 10px;
+}
+
+.hero_card_health_vault {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-right: 10px;
+}
+
+.hero_card_health_vault p:first-child {
+    color: var(--color-success);
+}
+
+.hero_card_health_vault p:last-child {
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--color-secondary);
+}
+
+.hero_card_inventory {
+    margin: 20px auto 0;
+    width: 90%;
+}
+
+.hero_card_inventory h1 {
+    margin: 0 auto 10px auto;
+    color: var(--color-text-accent);
+    margin: 0 auto 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+    padding-bottom: 5px;
+    text-align: left;
+}
+
+.hero_card_inventory_items {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    align-items: center;
+    width: 100%;
+    padding: 5px 0;
+}
+
+.hero_card_inventory_items p {
+    margin: 0;
+    padding: 0 10px;
+}
+
+.hero_card_inventory_items:first-of-type {
+    background-color: rgba(0, 0, 0, 0.25);
+    font-weight: 700;
+}
+
+.hero_card_inventory_items:first-of-type p {
+    text-align: center;
+}
+
+.hero_card_inventory_items:not(:first-of-type) p:first-child {
+    font-weight: 500;
+    padding-left: 20px;
+}
+
+.hero_card_inventory_items:not(:first-of-type) p:last-child {
+    font-style: italic;
+    opacity: 0.8;
+}
+/* #endregion */
+
+/* #region class2 (Проблема — Рішення) */
+.class2 {
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url('images/бекграунд/блок2.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    padding: var(--padding-section);
+    font-style: normal;
+    text-align: center;
+}
+
+.class2 h1 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    max-width: 900px;
+    margin: 0 auto 50px;
+}
+
+.class2 article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.class2 article img {
+    width: 100px; 
+    height: auto;
+    margin-bottom: 15px;
+    opacity: 0.7;
+}
+
+.class2 article > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    text-align: left;
+    width: 100%;
+}
+
+.class2 article p {
+    padding: 15px;
+    border-radius: 8px;
+    line-height: 1.4;
+}
+
+.class2 article p:first-child {
+    background-color: #5c3737;
+    color: #ffbaba;
+}
+
+.class2 article p:last-child {
+    background-color: #375c37;
+    color: #baffba;
+}
+
+.class2 b {
+    font-weight: 700;
+}
+/* #endregion */
+
+/* #region class3 (Ключові Функції) */
+.class3 {
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+        url('images/бекграунд/блок3_3.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    padding: var(--padding-section);
+    font-style: normal;
+}
+
+.class3 h1 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    color: var(--color-text-accent);
+    margin-bottom: 50px;
+}
+
+.class3_1 {
+    display: flex;
+    flex-direction: column;
+
+    margin-bottom: 80px;
+
+    max-width: var(--max-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 20px;
+}
+
+.class3_1 h2 {
+    color: var(--color-secondary);
+    font-size: 1.8rem;
+    text-align: left;
+    margin-bottom: 20px
+}
+
+.class3_2 {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    width: 100%;
+}
+
+.class3_2 img {
+    flex-shrink: 0;
+    width: 40%;
+    max-width: 400px;
+    height: auto;
+    background-repeat: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    border: 3px solid var(--color-secondary);
+}
+
+.class3_3 {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: flex-start;
+}
+
+.class3_3_main_text {
+    width: 100%;
+    text-align: left;
+    font-size: 1.2rem;
+    color: var(--color-text-light);
+    margin-bottom: 5px;
+}
+
+.class3_3_description_text {
+    width: 100%;
+    text-align: left;
+    line-height: 1.6;
+    opacity: 0.9;
+    margin-top: 5px;
+}
+
+@media (max-width: 768px) {
+    .class3_2,
+    .class3_1:nth-child(even) .class3_2 {
+        flex-direction: column;
+        gap: 20%;
+    }
+
+    .class3_2 img {
+        order: -1;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .class3_3 {
+        align-items: center;
+    }
+
+    .class3_3_main_text,
+    .class3_3_description_text {
+        text-align: center;
+    }
+}
+/* #endregion */
+
+/* #region class4 (Фінальний CTA) */
+.class4 {
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+        url('images/бекграунд/блок4.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    
+    padding: var(--padding-section);
+    text-align: center;
+    font-style: normal;
+}
+
+.class4 h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 20px;
+}
+
+.class4 > div {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.class4 p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+/* Фінальний CTA (final-cta) */
+.final-cta {
+    display: inline-block;
+    background-color: var(--color-text-accent);
+    color: var(--color-dark-bg); 
+    padding: 18px 40px;
+    border-radius: 8px;
+    font-size: 1.4rem;
+    font-weight: 700;
+    transition: background-color 0.3s, transform 0.1s;
+    text-transform: uppercase;
+}
+
+.final-cta:hover {
+    background-color: #ffe04d;
+    transform: translateY(-2px);
+}
+
+.ending {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ending_img {
+    width: 600px;
+    height: auto;
+    max-width: 100%;
+    margin-top: 40px;
+
+    mask-image: radial-gradient(
+        ellipse 47% 60% at 50% 60%,
+        black 10%,
+        transparent 100%
+    );
+
+    -webkit-mask-image: radial-gradient(
+        ellipse 47% 60% at 50% 60%,
+        black 10%,
+        transparent 100%
+    );
+
+    border-radius: 0;
+    box-shadow: none;
+}
+/* #endregion */
+
+/* #region Media Queries (Адаптивність) */
+@media (max-width: 768px) {
+    .class1 {
+        min-height: auto;
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+    .class1_head h1 {
+        font-size: 2.5rem;
+    }
+    .class1_head h2 {
+        font-size: 1.2rem;
+    }
+    .hero_card {
+        width: 90%;
+    }
+    
+    /* Адаптація CTA посилань */
+    .cta_buttons {
+        flex-direction: column;
+    }
+    .primary-cta, .secondary-cta {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    /* Адаптація Проблема - Рішення */
+    .class2 article > div {
+        grid-template-columns: 1fr;
+    }
+
+    /* Адаптація Ключових Функцій */
+    .class3 article,
+    .class3 article:nth-child(even) {
+        flex-direction: column;
+        text-align: center;
+    }
+    .class3 article h2 {
+        text-align: center;
+    }
+    .class3 article > div,
+    .class3 article img {
+        flex-basis: 100%;
+        max-width: 100%;
+    }
+    .class3 article img {
+        order: -1;
+        margin-bottom: 20px;
+    }
+}
+/* #endregion */
