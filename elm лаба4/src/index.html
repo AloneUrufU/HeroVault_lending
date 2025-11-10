@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Elm App</title>
+    <style>
+        body { 
+            padding: 0;
+            margin: 0;
+        }
+        #elm {
+            width: 100%;
+            height: 100vh;
+            padding: 20px;
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div id="elm"></div>
+    <script>
+        // Динамически загружаем elm.js с cache-bust (чтобы избежать проблем с кэшем)
+        (function(){
+            var cb = Date.now();
+            var script = document.createElement('script');
+            script.src = 'elm.js?cb=' + cb;
+            script.onload = function() {
+                console.log('elm.js загружен (cache-bust=' + cb + ')');
+                if (typeof Elm === 'undefined') {
+                    console.error('Elm не определён после загрузки elm.js');
+                    document.getElementById('elm').innerText = 'Ошибка: Elm не найден в elm.js';
+                    return;
+                }
+                try {
+                    Elm.Main.init({ node: document.getElementById('elm') });
+                    console.log('Elm инициализирован');
+                } catch (e) {
+                    console.error('Ошибка инициализации Elm:', e);
+                    document.getElementById('elm').innerText = 'Ошибка инициализации Elm: ' + e;
+                }
+            };
+            script.onerror = function() {
+                console.error('Не удалось загрузить elm.js по пути: ' + script.src);
+                document.getElementById('elm').innerText = 'Ошибка: не удалось загрузить elm.js';
+            };
+            document.head.appendChild(script);
+        })();
+    </script>
+</body>
+</html>
